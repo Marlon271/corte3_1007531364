@@ -1,0 +1,42 @@
+@startuml
+left to right direction
+actor Cliente
+actor Sistema
+
+rectangle "Gestión de Clientes" {
+  Cliente -- (Registrar Cliente)
+  Cliente -- (Modificar Cliente)
+  Cliente -- (Eliminar Cliente)
+  Cliente -- (Consultar Cliente)
+}
+
+rectangle "Gestión de Facturas" {
+  Cliente -- (Crear Factura)
+  Cliente -- (Modificar Factura)
+  Cliente -- (Eliminar Factura)
+  Cliente -- (Consultar Factura)
+}
+
+rectangle "Gestión de Detalles de Facturas" {
+  Cliente -- (Agregar Detalle de Factura)
+  Cliente -- (Modificar Detalle de Factura)
+  Cliente -- (Eliminar Detalle de Factura)
+  Cliente -- (Consultar Detalle de Factura)
+}
+
+rectangle "Gestión de Productos" {
+  Cliente -- (Registrar Producto)
+  Cliente -- (Modificar Producto)
+  Cliente -- (Eliminar Producto)
+  Cliente -- (Consultar Producto)
+}
+
+rectangle "Gestión de Inventario" {
+  Cliente -- (Registrar Entrada de Inventario)
+  Cliente -- (Registrar Salida de Inventario)
+  Cliente -- (Modificar Inventario)
+  Cliente -- (Eliminar Inventario)
+  Cliente -- (Consultar Inventario)
+}
+@enduml
+

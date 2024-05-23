@@ -1,0 +1,82 @@
+@startuml
+class Cliente {
+  -tipoDocumento: nvarchar
+  -documento: int
+  -nombre: nvarchar
+  -correo: nvarchar
+  +registrar()
+  +modificar()
+  +eliminar()
+  +consultar()
+}
+
+class FacturaCliente {
+  -numeroFactura: int
+  -fecha: date
+  -Numerocliente: int
+  +crear()
+  +modificar()
+  +eliminar()
+  +consultar()
+}
+
+class DetalleFactura {
+  -cantidad: int
+  -valorBruto: float
+  -valorNeto: float
+  -valorDescuento: float
+  -valorTotal: float
+  +agregar()
+  +modificar()
+  +eliminar()
+  +consultar()
+}
+
+class Producto {
+  -codigo: int
+  -nombre: nvarchar
+  -descripcion: nvarchar
+  -categoria: nvarchar
+  -valor: float
+  +registrar()
+  +modificar()
+  +eliminar()
+  +consultar()
+}
+
+class Inventario {
+  -codigo: int
+  -stock: int
+  -fechaIngreso: date
+  -valorDescuento: float
+  -porcentajeIVA: float
+  -fechaSalida: date
+  +registrarEntrada()
+  +registrarSalida()
+  +modificar()
+  +eliminar()
+  +consultar()
+}
+
+class RegistroInventario {
+  -codigo: int
+  -stock: int
+  -fechaIngreso: date
+  -valorDescuento: float
+  -porcentajeIVA: float
+  -fechaSalida: date
+  +registrarEntrada()
+  +registrarSalida()
+  +modificar()
+  +eliminar()
+  +consultar()
+}
+
+Cliente  --  FacturaCliente 
+FacturaCliente  --  DetalleFactura 
+DetalleFactura  --  Producto
+Producto  --  Inventario 
+Producto  --  RegistroInventario 
+@enduml
+
+
