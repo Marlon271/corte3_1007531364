@@ -1,0 +1,35 @@
+@startuml
+actor Cliente
+participant "FacturaCliente" as FC
+participant "DetalleFactura" as DF
+participant Producto
+participant Inventario
+
+Cliente -> FC : crear(numeroFactura, fecha)
+activate FC
+FC --> Cliente : Factura creada
+
+Cliente -> FC : agregarDetalleFactura(cantidad, valorBruto, valorNeto, valorDescuento, valorTotal)
+activate FC
+FC -> DF : agregar(cantidad, valorBruto, valorNeto, valorDescuento, valorTotal)
+activate DF
+DF --> FC : Detalle agregado
+deactivate DF
+FC --> Cliente : Detalle de factura agregado
+
+Cliente -> Producto : registrar(codigo, nombre, descripcion, categoria, valor)
+activate Producto
+Producto --> Cliente : Producto registrado
+
+Cliente -> Inventario : registrarEntrada(codigo, stock, fechaIngreso, valorDescuento, porcentajeIVA)
+activate Inventario
+Inventario --> Cliente : Entrada de inventario registrada
+deactivate Inventario
+
+Cliente -> Inventario : registrarSalida(codigo, fechaSalida)
+activate Inventario
+Inventario --> Cliente : Salida de inventario registrada
+deactivate Inventario
+
+@enduml
+
